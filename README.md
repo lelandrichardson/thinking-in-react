@@ -1,5 +1,14 @@
 # Thinking in React
 
+## Getting started
+
+To get started, clone this project and navigate to the directory
+
+```bash
+git clone https://github.com/lelandrichardson/thinking-in-react.git
+cd thinking-in-react
+```
+
 ## To run this project
 
 ```bash
