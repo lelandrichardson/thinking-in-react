@@ -15,12 +15,21 @@ const COLOR_NORMAL = 'black';
 // length is greater than `WARN_LEN`, and just `COLOR_NORMAL`
 // otherwise.
 
+const colorForLength = length => length > MAX_LEN
+  ? COLOR_INVALID
+  : length > WARN_LEN
+    ? COLOR_WARNING
+    : COLOR_NORMAL;
 class TweetComposer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       text: '',
     };
+    this.onChange = this.onChange.bind(this);
+  }
+  onChange(e) {
+    this.setState({ text: e.target.value });
   }
   render() {
     const { text } = this.state;
@@ -28,9 +37,11 @@ class TweetComposer extends React.Component {
       <div>
         <textarea
           type="text"
+          value={text}
+          onChange={this.onChange}
         />
-        <div style={{ color: COLOR_WARNING }}>
-          42 / {MAX_LEN}
+        <div style={{ color: colorForLength(text.length) }}>
+          {text.length} / {MAX_LEN}
         </div>
       </div>
     );

@@ -16,3 +16,14 @@ import './utils/perf';
 // If you want to play around, you can do so here!
 
 import './examples/01-playground';
+
+
+
+
+// import './solutions/01-tweet-composer';
+// import './solutions/02-tweet-composer-controlled';
+// import './solutions/03-hoc-with-window-size';
+// import './solutions/04-hoc-debounce';
+// import './solutions/05-hoc-with-promises';
+// import './solutions/06-row-reordering';
+// import './solutions/07-performance';

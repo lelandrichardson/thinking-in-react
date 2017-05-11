@@ -21,14 +21,35 @@ const COLOR_NORMAL = 'black';
 // tweet composer components are in an invalid state. The
 // button can be disabled using the `disabled={boolean}` prop.
 
-
-// HINT: start with the `TweetComposer` that you built
-// from exercise 1.
+const colorForLength = length => length > MAX_LEN
+  ? COLOR_INVALID
+  : length > WARN_LEN
+    ? COLOR_WARNING
+    : COLOR_NORMAL;
 class TweetComposer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '',
+    };
+    this.onChange = this.onChange.bind(this);
+  }
+  onChange(e) {
+    this.setState({ text: e.target.value });
+  }
   render() {
-    const { value } = this.props;
+    const { text } = this.state;
     return (
-      <div />
+      <div>
+        <textarea
+          type="text"
+          value={text}
+          onChange={this.onChange}
+        />
+        <div style={{ color: colorForLength(text.length) }}>
+          {text.length} / {MAX_LEN}
+        </div>
+      </div>
     );
   }
 }
